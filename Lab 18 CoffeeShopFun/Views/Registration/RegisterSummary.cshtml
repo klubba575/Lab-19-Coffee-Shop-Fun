@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Summary of Your Input";
+}
+
+<a class="nav-link text-dark" asp-area="" asp-controller="Registration" asp-action="Show Results"> Results Page</a>
+
+<h1>RegisterSummary</h1>
+
+@model RegisterUser
+
+<h2>
+    Hello, @Model.FirstName @Model.LastName
+    Your username is @Model.UserName
+    Your email address is @Model.Email
+
+</h2>

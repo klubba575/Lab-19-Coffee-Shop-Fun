@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@model RegisterUser
+@{
+    if (Model != null)
+    {
+        <form asp-controller="Registration" asp-action="RegisterSummary" method="post">
+            <label>First Name</label>
+            <input type="text" name="FirstName" value="@Model.FirstName" required />
+            <label>Last Name</label>
+            <input type="text" name="LastName" value="@Model.LastName" required />
+            <label>User Name</label>
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            <input type="text" name="UserName" value="@Model.UserName" />
+            <label>Email Address</label>
+            <input type="email" name="Email" value="@Model.Email" />
+            <label>Password</label>
+            <input type="password" name="Password" value="@Model.Password" />
+            <input type="submit" value="Create User" />
+        </form>
+    }
+    else
+    {
+        <form asp-controller="Registration" asp-action="RegisterSummary" method="post">
+            <label>First Name</label>
+            <input type="text" name="FirstName" value="" required />
+            <label>Last Name</label>
+            <input type="text" name="LastName" value="" required />
+            <label>User Name</label>
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            <input type="text" name="UserName" value="" />
+            <label>Email Address</label>
+            <input type="email" name="Email" value="" />
+            <label>Password</label>
+            <input type="password" name="Password" value="" />
+            <input type="submit" value="Create User" />
+        </form>
+    }
+}

@@ -7,11 +7,22 @@
 
 <h1>RegisterSummary</h1>
 
-@model RegisterUser
+@model Lab_18_CoffeeShopFun.Models.RegisterUser
 
-<h2>
+
+<h3>
     Hello, @Model.FirstName @Model.LastName
     Your username is @Model.UserName
     Your email address is @Model.Email
 
+</h3>
+<h2>
+    Thanks for registering, Please click the button below to Log In or to Add Another User
 </h2>
+
+<form asp-controller="Registration" asp-action="Index"><button class="btn btn-primary">ADD Another User</button>
+    </form>
+
+<form asp-controller="LogIn" asp-action="Index"><button class="btn btn-primary">LOG IN HERE!</button>
+    
+    </form>

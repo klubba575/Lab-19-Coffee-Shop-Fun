@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Lab_18_CoffeeShopFun.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Lab_18_CoffeeShopFun.Controllers
 {
     public class RegistrationController : Controller
     {
-		[HttpGet]
-		public IActionResult Index()
-		{
-			return View();
-		}
+		List<RegisterUser> registeredUsers = new List<RegisterUser>();
 
-		[HttpPost]
-        public IActionResult Index(RegisterUser user)
+        public IActionResult Index(RegisterUser newUser)
         {
-			//Doing stuff here
-            return View(user);
+			PopulateFromSession();
+            return View(newUser);
         }
-
-		[HttpPost]
+		public IActionResult AddUser(RegisterUser newUser)
+		{
+			PopulateFromSession();
+			registeredUsers.Add(newUser);
+			HttpContext.Session.SetString("RegisteredUserSession", JsonConvert.SerializeObject("registeredUsers"));
+			return RedirectToAction("Index");
+		}
 		public IActionResult RegisterSummary(RegisterUser user)
 		{
 			if (!ModelState.IsValid)
@@ -30,6 +32,15 @@ namespace Lab_18_CoffeeShopFun.Controllers
 				return RedirectToAction("Index", user);
 			}
 			return View(user);
+		}
+		public List<RegisterUser> PopulateFromSession()
+		{
+			string userListJson = HttpContext.Session.GetString("RegisteredUserSession");
+			if (userListJson != null)
+			{
+				registeredUsers = JsonConvert.DeserializeObject<List<RegisterUser>>(userListJson);
+			}
+			return registeredUsers;
 		}
     }
 }

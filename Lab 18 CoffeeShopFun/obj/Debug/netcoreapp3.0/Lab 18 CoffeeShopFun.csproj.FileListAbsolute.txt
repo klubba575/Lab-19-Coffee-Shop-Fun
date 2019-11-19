@@ -126,3 +126,4 @@ C:\Users\Andy Wilder\source\repos\Lab 18 CoffeeShopFun\Lab 18 CoffeeShopFun\obj\
 C:\Users\Andy Wilder\source\repos\Lab 18 CoffeeShopFun\Lab 18 CoffeeShopFun\obj\Debug\netcoreapp3.0\Lab 18 CoffeeShopFun.pdb
 C:\Users\Andy Wilder\source\repos\Lab 18 CoffeeShopFun\Lab 18 CoffeeShopFun\obj\Debug\netcoreapp3.0\Razor\Views\Registration\Index.cshtml.g.cs
 C:\Users\Andy Wilder\source\repos\Lab 18 CoffeeShopFun\Lab 18 CoffeeShopFun\obj\Debug\netcoreapp3.0\Razor\Views\Registration\RegisterSummary.cshtml.g.cs
+C:\Users\Andy Wilder\source\repos\Lab 18 CoffeeShopFun\Lab 18 CoffeeShopFun\obj\Debug\netcoreapp3.0\Razor\Views\LogIn\Index.cshtml.g.cs
